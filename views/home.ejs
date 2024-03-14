@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CSV Project</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+
+        /* Body styles */
+        body {
+            background-color: #f8f9fa; /* Set background color */
+            padding-top: 50px; /* Add padding to the top */
+        }
+
+        /* Heading styles */
+        h1 {
+            text-align: center; /* Center align the heading */
+            margin-bottom: 30px; /* Add margin at the bottom */
+        }
+
+        /* Table styles */
+        table {
+            width: 100%; /* Set table width to 100% */
+            margin-bottom: 40px; /* Add margin at the bottom */
+        }
+
+        th,
+        td {
+            padding: 10px; /* Add padding to table cells */
+            text-align: center; /* Center align text */
+        }
+
+        /* Table header styles */
+        th {
+            background-color: #007bff; /* Set background color */
+            color: white; /* Set text color to white */
+        }
+
+        /* Container styles */
+        .container {
+            background-color: white; /* Set background color */
+            border-radius: 10px; /* Add border radius */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+            padding: 30px; /* Add padding */
+        }
+
+        /* Form group styles */
+        .form-group {
+            margin-bottom: 20px; /* Add margin at the bottom */
+        }
+
+        /* Primary button styles */
+        .btn-primary {
+            width: 100%; /* Set button width to 100% */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <!-- Heading -->
+        <h1>CSV Upload</h1>
+        
+        <!-- Table to display uploaded files -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Filename</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% files.forEach(function(file) { %>
+                <tr>
+                    <td><%= file.filename %></td>
+                    <td>
+                        <a href="/csv/<%= file._id %>" class="btn btn-primary">View</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <!-- Form to upload CSV file -->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="csvFile">Select a CSV file to upload:</label>
+                        <input type="file" class="form-control-file" id="csvFile" name="csv" accept=".csv">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
