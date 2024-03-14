@@ -7,7 +7,7 @@
     "start": " nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "prakash singh",
+  "author": "shubham",
   "license": "ISC",
   "dependencies": {
     "csv-parser": "^3.0.0",
